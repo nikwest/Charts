@@ -16,13 +16,14 @@ open class ChevronUpShapeRenderer : NSObject, IShapeRenderer
     open func renderShape(
         context: CGContext,
                 dataSet: IScatterChartDataSet,
+                index: Int,
                 viewPortHandler: ViewPortHandler,
-                point: CGPoint,
-                color: NSUIColor)
+                point: CGPoint)
     {
         let shapeSize = dataSet.scatterShapeSize
         let shapeHalf = shapeSize / 2.0
-        
+        let color = dataSet.color(atIndex: index)
+
         context.setLineWidth(1.0)
         context.setStrokeColor(color.cgColor)
         

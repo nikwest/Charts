@@ -20,13 +20,13 @@ public protocol IShapeRenderer: class
     /// - Parameters:
     ///   - context:         CGContext for drawing on
     ///   - dataSet:         The DataSet to be drawn
+    ///   - index:           Index of the shape in the data set
     ///   - viewPortHandler: Contains information about the current state of the view
     ///   - point:           Position to draw the shape at
-    ///   - color:           Color to draw the shape
     func renderShape(
         context: CGContext,
         dataSet: IScatterChartDataSet,
+        index: Int,
         viewPortHandler: ViewPortHandler,
-        point: CGPoint,
-        color: NSUIColor)
+        point: CGPoint)
 }

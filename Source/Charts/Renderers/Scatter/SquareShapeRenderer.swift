@@ -16,9 +16,9 @@ open class SquareShapeRenderer : NSObject, IShapeRenderer
     open func renderShape(
         context: CGContext,
         dataSet: IScatterChartDataSet,
+        index: Int,
         viewPortHandler: ViewPortHandler,
-        point: CGPoint,
-        color: NSUIColor)
+        point: CGPoint)
     {
         let shapeSize = dataSet.scatterShapeSize
         let shapeHalf = shapeSize / 2.0
@@ -27,7 +27,8 @@ open class SquareShapeRenderer : NSObject, IShapeRenderer
         let shapeHoleColor = dataSet.scatterShapeHoleColor
         let shapeStrokeSize = (shapeSize - shapeHoleSize) / 2.0
         let shapeStrokeSizeHalf = shapeStrokeSize / 2.0
-        
+        let color = dataSet.color(atIndex: index)
+
         if shapeHoleSize > 0.0
         {
             context.setStrokeColor(color.cgColor)
